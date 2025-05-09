@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Age Calculator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h2 id="calculatorTitle">Age Calculator</h2>
+
+    <!-- Language Selection Dropdown -->
+    <div>
+      <label for="languageSelect" id="languageLabel">Select Language:</label>
+      <select id="languageSelect" onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+      </select>
+    </div>
+
+    <input type="number" id="day" placeholder="Day (1-31)" min="1" max="31" maxlength="2" 
+      oninput="this.value = this.value.slice(0, 2); if (parseInt(this.value) > 31) this.value = 31;" />
+    <input type="number" id="month" placeholder="Month (1-12)" min="1" max="12" maxlength="2" 
+      oninput="this.value = this.value.slice(0, 2); 
+               if (parseInt(this.value) > 12) this.value = 12; 
+               if (this.value.includes('.') || this.value.includes(',')) { 
+                 this.value = this.value.slice(0, -1); 
+               }" />
+    <input type="number" id="year" placeholder="Year (e.g. 2000)" min="1900" maxlength="4" 
+      oninput="this.value = this.value.slice(0, 4);" />
+    <button onclick="calculateAge()" id="calculateBtn">Calculate</button>
+    
+    <div class="result" id="result">
+      <div class="initial-message" id="initialMessage">Let's discover your age!</div>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
