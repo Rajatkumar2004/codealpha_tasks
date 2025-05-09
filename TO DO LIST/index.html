@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Interactive To-Do List with Reminder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="todo-container">
+    <h2>Interactive To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="Enter task" />
+    
+    <!-- Input for reminder time -->
+    <input type="datetime-local" id="reminderTime" />
+    
+    <button id="addBtn" onclick="addTask()">Add</button>
+    <div id="errorMsg" class="error-message">You have not written anything!</div>
+
+    <div class="filter-buttons">
+      <button onclick="filterTasks('all')">All</button>
+      <button onclick="filterTasks('completed')">Completed</button>
+      <button onclick="filterTasks('pending')">Pending</button>
+    </div>
+
+    <ul id="taskList"></ul>
+    <div id="noTasksMessage" class="no-tasks-message">No tasks available</div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
